@@ -50,7 +50,7 @@
 4. 输出目录填 `dist`。
 5. 第一次成功后，确认默认域名并同步更新 `src/site-config.mjs` 里的 `url`。
 
-当前自动部署地址是：`https://boke-git.pages.dev`
+当前正式地址是：`https://gudong226.linuxdo.space`
 
 ## 自动部署方式
 

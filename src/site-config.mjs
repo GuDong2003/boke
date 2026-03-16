@@ -2,7 +2,7 @@ export const siteConfig = {
   title: '咕咚的小站',
   description:
     '一个以内容为中心的个人博客，适合写随笔、笔记、项目记录和长期积累。',
-  url: 'https://boke-git.pages.dev',
+  url: 'https://gudong226.linuxdo.space',
   lang: 'zh-CN',
   locale: 'zh-CN',
   author: '咕咚',
