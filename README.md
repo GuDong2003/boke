@@ -23,7 +23,7 @@
 - 在 `src/site-config.mjs` 里改站点标题、描述、作者、域名。
 - 把 `src/content/blog/` 里的示例文章替换成你的内容。
 - 按需要修改导航和社交链接。
-- 如果要启用评论，在 `src/site-config.mjs` 里填好 giscus 配置。
+- 评论已经接到 `GuDong2003/boke` 的 GitHub Discussions；如果以后要换仓库，在 `src/site-config.mjs` 里改 giscus 配置。
 
 ## 项目结构
 
@@ -68,12 +68,20 @@ git push origin main
 
 Cloudflare Pages 就会自动拉取仓库、执行构建并上线。
 
+## 评论与统计
+
+- 评论已启用，文章页底部会通过 giscus 写入 `GuDong2003/boke` 的 GitHub Discussions。
+- 如果想改评论仓库或分类，编辑 `src/site-config.mjs` 里的 `comments` 配置。
+- 站点统计推荐直接用 Cloudflare Pages 自带的 Web Analytics，不需要改代码。
+- 开启路径：Cloudflare 后台 -> `Workers 和 Pages` -> `boke-git` -> `指标 / Metrics` -> `Web Analytics` -> `启用`。
+- 开启后等下一次部署完成，统计数据就会开始累计。
+
 ## 现在已经带了什么
 
 - 首页、归档、文章详情、关于页、404 页
 - RSS 输出
 - 轻量站内搜索 `src/pages/search.astro`
-- 预留的 giscus 评论组件 `src/components/Comments.astro`
+- 已启用的 giscus 评论组件 `src/components/Comments.astro`
 - Cloudflare Pages 可识别的安全响应头 `public/_headers`
 
 ## 后续可以继续加
