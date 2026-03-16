@@ -1,0 +1,31 @@
+---
+import { siteConfig } from '../data/site';
+
+const pathname = Astro.url.pathname;
+const isActive = (href: string) => {
+  if (href === '/') {
+    return pathname === href;
+  }
+
+  return pathname.startsWith(href);
+};
+---
+
+<header class="site-header">
+  <div class="container header-shell">
+    <a class="brand" href="/">
+      <span class="brand-mark">{siteConfig.title}</span>
+      <span class="brand-copy">{siteConfig.tagline}</span>
+    </a>
+
+    <nav class="nav" aria-label="主导航">
+      {
+        siteConfig.nav.map((item) => (
+          <a class:list={{ 'is-active': isActive(item.href) }} href={item.href}>
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+  </div>
+</header>

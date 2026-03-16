@@ -1,0 +1,79 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import Comments from '../../components/Comments.astro';
+import PostCard from '../../components/PostCard.astro';
+import PostMeta from '../../components/PostMeta.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { sortPosts } from '../../utils/blog';
+
+export async function getStaticPaths() {
+  const posts = sortPosts(await getCollection('blog'));
+
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+const morePosts = sortPosts(await getCollection('blog'))
+  .filter((entry) => entry.id !== post.id)
+  .slice(0, 2);
+---
+
+<BaseLayout title={post.data.title} description={post.data.description}>
+  <SiteHeader />
+
+  <main class="article-main">
+    <section class="section">
+      <div class="container">
+        <article class="prose-shell">
+          <header class="article-header">
+            <a class="back-link" href="/blog/">返回归档</a>
+            <p class="eyebrow">文章</p>
+            <h1 class="article-title">{post.data.title}</h1>
+            <p class="lead">{post.data.description}</p>
+
+            <PostMeta
+              publishDate={post.data.publishDate}
+              updatedDate={post.data.updatedDate}
+              tags={post.data.tags}
+            />
+          </header>
+
+          <div class="prose">
+            <Content />
+          </div>
+        </article>
+
+        <Comments />
+      </div>
+    </section>
+
+    {
+      morePosts.length > 0 && (
+        <section class="section">
+          <div class="container section-heading">
+            <div>
+              <p class="eyebrow">继续读</p>
+              <h2>再看两篇相关的。</h2>
+            </div>
+          </div>
+
+          <div class="container post-grid">
+            {morePosts.map((entry) => <PostCard post={entry} />)}
+          </div>
+        </section>
+      )
+    }
+  </main>
+
+  <SiteFooter />
+</BaseLayout>

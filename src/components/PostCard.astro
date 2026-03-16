@@ -1,0 +1,25 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import PostMeta from './PostMeta.astro';
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
+const { post } = Astro.props;
+---
+
+<article class="post-card">
+  <a class="post-card-link" href={`/blog/${post.slug}/`}>
+    <p class="post-card-kicker">文章</p>
+    <h3 class="post-card-title">{post.data.title}</h3>
+    <p class="post-card-description">{post.data.description}</p>
+    <span class="inline-link">继续阅读</span>
+  </a>
+
+  <PostMeta
+    publishDate={post.data.publishDate}
+    updatedDate={post.data.updatedDate}
+    tags={post.data.tags}
+  />
+</article>

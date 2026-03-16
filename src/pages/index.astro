@@ -1,0 +1,92 @@
+---
+import { getCollection } from 'astro:content';
+import Hero from '../components/Hero.astro';
+import PostCard from '../components/PostCard.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { sortPosts } from '../utils/blog';
+
+const posts = sortPosts(await getCollection('blog'));
+const featuredPosts = posts.slice(0, 3);
+const tagCount = new Set(posts.flatMap((post) => post.data.tags)).size;
+
+const pillars = [
+  {
+    title: '内容优先',
+    text: '文章直接放在 Markdown 里，配上类型化 frontmatter、清晰 URL 和 Git 版本记录，简单且耐用。',
+  },
+  {
+    title: '默认够快',
+    text: 'Astro 生成静态页面，Cloudflare Pages 负责全球分发，页面结构也尽量保持轻盈。',
+  },
+  {
+    title: '后续好扩展',
+    text: '搜索、评论、统计、表单、边缘能力都可以后加，不需要一开始就把博客做重。',
+  },
+];
+---
+
+<BaseLayout>
+  <SiteHeader />
+
+  <main>
+    <Hero postCount={posts.length} tagCount={tagCount} />
+
+    <section class="section">
+      <div class="container section-heading">
+        <div>
+          <p class="eyebrow">最近更新</p>
+          <h2>先写出几篇像样的文章，再让归档慢慢长出来。</h2>
+        </div>
+
+        <a class="ghost-link" href="/blog/">查看全部文章</a>
+      </div>
+
+      <div class="container post-grid">
+        {featuredPosts.map((post) => <PostCard post={post} />)}
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container section-heading">
+        <div>
+          <p class="eyebrow">为什么这样搭</p>
+          <h2>今天够轻，明天也够用。</h2>
+        </div>
+      </div>
+
+      <div class="container feature-grid">
+        {
+          pillars.map((pillar, index) => (
+            <article class="feature-card">
+              <span class="feature-index">{String(index + 1).padStart(2, '0')}</span>
+              <h3>{pillar.title}</h3>
+              <p>{pillar.text}</p>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container cta-strip">
+        <div>
+          <p class="eyebrow">接下来做什么</p>
+          <h2>换成你的内容，填上域名，就可以准备发布了。</h2>
+          <p>
+            把 <code>src/site-config.mjs</code> 改成你的站点信息，再往
+            <code>src/content/blog</code> 里加文章，然后把仓库连到 Cloudflare Pages。
+          </p>
+        </div>
+
+        <div class="cta-links">
+          <a class="button" href="/about/">看配置说明</a>
+          <a class="button-secondary" href="/search/">试试站内搜索</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <SiteFooter />
+</BaseLayout>

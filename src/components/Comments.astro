@@ -1,0 +1,43 @@
+---
+import { siteConfig } from '../data/site';
+
+const comments = siteConfig.comments;
+const isConfigured = Boolean(
+  comments.enabled &&
+    comments.repo &&
+    comments.repoId &&
+    comments.category &&
+    comments.categoryId,
+);
+---
+
+{
+  isConfigured && (
+    <section class="comments-shell">
+      <div class="comments-intro">
+        <p class="eyebrow">评论</p>
+        <h2>继续聊聊这篇文章。</h2>
+        <p class="comments-note">评论由 GitHub Discussions 和 giscus 提供。</p>
+      </div>
+
+      <div class="panel comments-panel">
+        <script
+          src="https://giscus.app/client.js"
+          data-repo={comments.repo}
+          data-repo-id={comments.repoId}
+          data-category={comments.category}
+          data-category-id={comments.categoryId}
+          data-mapping={comments.mapping}
+          data-strict={comments.strict}
+          data-reactions-enabled={comments.reactionsEnabled}
+          data-emit-metadata={comments.emitMetadata}
+          data-input-position={comments.inputPosition}
+          data-lang={comments.lang}
+          data-theme={comments.theme}
+          crossorigin="anonymous"
+          async
+        ></script>
+      </div>
+    </section>
+  )
+}
