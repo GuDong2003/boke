@@ -50,6 +50,28 @@
 4. 输出目录填 `dist`。
 5. 如果先用 Cloudflare 默认域名，部署后确认 `*.pages.dev` 地址，再同步更新 `src/site-config.mjs` 里的 `url`。
 
+当前这个项目第一次部署后的默认地址是：`https://boke-3le.pages.dev`
+
+## 一键直传部署
+
+如果你不想在 Cloudflare 后台里反复点，也可以直接本地命令部署到 Pages：
+
+1. 先登录 Cloudflare：`npm run cf:login`
+2. 一键部署：`npm run cf:deploy`
+
+或者直接运行脚本：
+
+```bash
+chmod +x scripts/deploy-pages.sh
+./scripts/deploy-pages.sh
+```
+
+说明：
+
+- 这会先执行 `astro build`
+- 然后把 `dist/` 直接上传到 Cloudflare Pages 项目 `boke`
+- 如果你还没在 Cloudflare 里创建过 `boke` 这个 Pages 项目，需要先创建一次
+
 ## 现在已经带了什么
 
 - 首页、归档、文章详情、关于页、404 页

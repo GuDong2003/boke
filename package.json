@@ -8,7 +8,9 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "check": "astro check"
+    "check": "astro check",
+    "cf:login": "npx wrangler login",
+    "cf:deploy": "npm run build && npx wrangler pages deploy dist --project-name=boke --branch=main --commit-dirty=true"
   },
   "engines": {
     "node": ">=20.11.0"
