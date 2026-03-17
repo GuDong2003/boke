@@ -1,0 +1,210 @@
+nav:
+  fixed: false
+
+menu:
+  首页: / || fas fa-home
+  归档: /archives/ || fas fa-archive
+  分类: /categories/ || fas fa-folder-open
+  标签: /tags/ || fas fa-tags
+  关于: /about/ || fas fa-user
+
+social:
+  fab fa-github: https://github.com/GuDong2003 || GitHub || '#24292e'
+  fas fa-rss: /atom.xml || RSS || '#ff6b35'
+
+favicon: /img/favicon.svg
+
+avatar:
+  img: /img/avatar.svg
+  effect: true
+
+default_top_img: /img/site-bg.svg
+index_img: /img/site-bg.svg
+archive_img: /img/archive-bg.svg
+tag_img: /img/tag-bg.svg
+category_img: /img/category-bg.svg
+background: /img/background.svg
+
+cover:
+  index_enable: true
+  aside_enable: true
+  archives_enable: true
+  default_cover:
+    - /img/covers/cover-1.svg
+    - /img/covers/cover-2.svg
+    - /img/covers/cover-3.svg
+
+error_img:
+  flink: /img/post-fallback.svg
+  post_page: /img/post-fallback.svg
+
+error_404:
+  enable: true
+  subtitle: 这页跑丢了
+  background: /img/error-page.svg
+
+post_meta:
+  page:
+    date_type: created
+    date_format: date
+    categories: true
+    tags: true
+    label: true
+  post:
+    date_type: both
+    date_format: date
+    categories: true
+    tags: true
+    label: true
+
+index_site_info_top: 42%
+index_top_img_height: 460px
+
+subtitle:
+  enable: true
+  effect: true
+  sub:
+    - 见字如面，慢慢更新。
+    - 写一点文章，记一点折腾。
+    - 欢迎来到咕咚的小站。
+
+index_layout: 3
+
+index_post_content:
+  method: 2
+  length: 220
+
+post_copyright:
+  enable: true
+  decode: false
+  author_href: https://gudong226.linuxdo.space
+  license: CC BY-NC-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+post_edit:
+  enable: true
+  url: https://github.com/GuDong2003/boke/edit/main/source/
+
+related_post:
+  enable: true
+  limit: 6
+
+footer:
+  owner:
+    enable: true
+    since: 2026
+  copyright:
+    enable: true
+    version: false
+  custom_text: 缓慢更新中，欢迎常来坐坐。
+
+aside:
+  enable: true
+  hide: false
+  button: true
+  mobile: true
+  position: right
+  display:
+    archive: true
+    tag: true
+    category: true
+  card_author:
+    enable: true
+    description: 把写作、项目和灵感慢慢收进一个小站。
+    button:
+      enable: true
+      icon: fab fa-github
+      text: Follow Me
+      link: https://github.com/GuDong2003
+  card_announcement:
+    enable: true
+    content: 欢迎来到咕咚的小站~
+  card_recent_post:
+    enable: true
+    limit: 5
+    sort: date
+  card_categories:
+    enable: true
+    limit: 8
+    expand: none
+  card_tags:
+    enable: true
+    limit: 40
+    color: false
+    orderby: name
+    order: 1
+  card_archives:
+    enable: true
+    type: monthly
+    format: MMMM YYYY
+    order: -1
+    limit: 12
+  card_webinfo:
+    enable: true
+    post_count: true
+    last_push_date: true
+    runtime_date: 2026/01/01 00:00:00
+
+readmode: true
+
+darkmode:
+  enable: true
+  button: true
+  autoChangeMode: false
+
+rightside_scroll_percent: true
+
+copy:
+  enable: true
+  copyright:
+    enable: false
+
+wordcount:
+  enable: true
+  post_wordcount: true
+  min2read: true
+  total_wordcount: true
+
+search:
+  use: local_search
+  placeholder: 搜索文章...
+  local_search:
+    preload: false
+    top_n_per_article: 1
+    unescape: false
+    pagination:
+      enable: false
+
+comments:
+  use: Giscus
+  text: true
+  lazyload: false
+  count: false
+  card_post_count: false
+
+giscus:
+  repo: GuDong2003/boke
+  repo_id: R_kgDORocorQ
+  category_id: DIC_kwDORocorc4C4hbb
+  light_theme: light
+  dark_theme: dark
+  option:
+    data-category: General
+    data-lang: zh-CN
+    data-input-position: top
+    data-mapping: pathname
+    data-strict: '0'
+    data-emit-metadata: '0'
+
+category_ui: index
+tag_ui: index
+
+mask:
+  header: true
+  footer: false
+
+display_mode: light
+
+inject:
+  head:
+    - <link rel="stylesheet" href="/css/custom.css">

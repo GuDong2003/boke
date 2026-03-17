@@ -2,21 +2,36 @@
   "name": "boke",
   "version": "0.1.0",
   "private": true,
-  "type": "module",
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "check": "astro check"
+    "clean": "node ./node_modules/hexo-cli/bin/hexo clean",
+    "dev": "node ./node_modules/hexo-cli/bin/hexo server",
+    "start": "node ./node_modules/hexo-cli/bin/hexo server",
+    "build": "node ./node_modules/hexo-cli/bin/hexo generate",
+    "preview": "node ./node_modules/hexo-cli/bin/hexo server",
+    "check": "node ./node_modules/hexo-cli/bin/hexo generate"
   },
   "engines": {
     "node": ">=20.11.0"
   },
-  "devDependencies": {
-    "@astrojs/rss": "^4.0.11",
-    "@astrojs/sitemap": "^3.2.1",
-    "astro": "^5.2.0",
-    "typescript": "^5.7.3"
+  "hexo": {
+    "version": "8.1.1"
+  },
+  "dependencies": {
+    "hexo": "^8.1.1",
+    "hexo-cli": "^4.3.2",
+    "hexo-generator-archive": "^2.0.0",
+    "hexo-generator-category": "^2.0.0",
+    "hexo-generator-feed": "^3.0.0",
+    "hexo-generator-index": "^4.0.0",
+    "hexo-generator-searchdb": "^1.4.1",
+    "hexo-generator-sitemap": "^3.0.1",
+    "hexo-generator-tag": "^2.0.0",
+    "hexo-renderer-ejs": "^2.0.0",
+    "hexo-renderer-marked": "^7.0.1",
+    "hexo-renderer-pug": "^3.0.0",
+    "hexo-renderer-stylus": "^3.0.1",
+    "hexo-server": "^3.0.0",
+    "hexo-theme-butterfly": "^5.5.4",
+    "hexo-wordcount": "^6.0.1"
   }
 }

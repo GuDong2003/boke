@@ -1,91 +1,69 @@
 # Boke
 
-一个基于 Astro 的个人博客起步项目，目标是先把写作和发布跑通，再按需扩展搜索、评论和边缘能力。
+一个基于 Hexo + Butterfly 的中文个人博客，目标是更接近传统中文博客风格：大头图、侧边栏、分类、标签、归档和封面文章流。
 
 ## 技术栈
 
-- Astro
-- Markdown content collections
-- 原生 CSS
-- RSS 和 sitemap
-- GitHub 管理源码与文章
-- Cloudflare Pages 负责部署
+- Hexo 8
+- Butterfly 主题
+- Giscus 评论
+- 本地搜索、RSS、sitemap
+- GitHub 管理源码
+- Cloudflare Pages 自动部署
 
 ## 快速开始
 
 1. 安装 Node.js 20 或更高版本。
 2. 运行 `npm install`。
 3. 运行 `npm run dev`。
-4. 打开终端里 Astro 输出的本地地址。
+4. 打开终端里 Hexo 输出的本地地址。
 
-## 先改哪些地方
-
-- 在 `src/site-config.mjs` 里改站点标题、描述、作者、域名。
-- 把 `src/content/blog/` 里的示例文章替换成你的内容。
-- 按需要修改导航和社交链接。
-- 评论已经接到 `GuDong2003/boke` 的 GitHub Discussions；如果以后要换仓库，在 `src/site-config.mjs` 里改 giscus 配置。
-
-## 项目结构
-
-```text
-.
-|- public/
-|- src/
-|  |- components/
-|  |- content/blog/
-|  |- data/
-|  |- layouts/
-|  |- pages/
-|  |- styles/
-|  `- utils/
-|- astro.config.mjs
-`- package.json
-```
-
-## Deploy to Cloudflare Pages
-
-1. 先把当前目录推到 GitHub 仓库。
-2. 在 Cloudflare Pages 里从这个仓库创建 Git 连接项目。
-3. 构建命令填 `npm run build`。
-4. 输出目录填 `dist`。
-5. 第一次成功后，确认默认域名并同步更新 `src/site-config.mjs` 里的 `url`。
-
-当前正式地址是：`https://gudong226.linuxdo.space`
-
-## 自动部署方式
-
-现在这个项目已经接到 GitHub 自动部署：
-
-- 仓库：`GuDong2003/boke`
-- 分支：`main`
-- Pages 项目：`boke-git`
-
-以后只要：
+## 常用命令
 
 ```bash
-git push origin main
+npm run dev
+npm run build
+npx hexo new post "文章标题"
 ```
 
-Cloudflare Pages 就会自动拉取仓库、执行构建并上线。
+## 主要配置文件
+
+- Hexo 站点配置：`_config.yml`
+- Butterfly 主题配置：`_config.butterfly.yml`
+- 文章目录：`source/_posts/`
+- 自定义样式：`source/css/custom.css`
+- 静态资源：`source/img/`
+
+## 当前地址
+
+- 正式站点：`https://gudong226.linuxdo.space`
+- GitHub 仓库：`https://github.com/GuDong2003/boke`
+
+## Cloudflare Pages 配置
+
+- 构建命令：`npm run build`
+- 输出目录：`public`
+- Node 版本：`20`
 
 ## 评论与统计
 
-- 评论已启用，文章页底部会通过 giscus 写入 `GuDong2003/boke` 的 GitHub Discussions。
-- 如果想改评论仓库或分类，编辑 `src/site-config.mjs` 里的 `comments` 配置。
-- 站点统计推荐直接用 Cloudflare Pages 自带的 Web Analytics，不需要改代码。
-- 开启路径：Cloudflare 后台 -> `Workers 和 Pages` -> `boke-git` -> `指标 / Metrics` -> `Web Analytics` -> `启用`。
-- 开启后等下一次部署完成，统计数据就会开始累计。
+- 评论使用 `Giscus`，配置在 `_config.butterfly.yml`
+- GitHub Discussions 仓库：`GuDong2003/boke`
+- Cloudflare Web Analytics 已在后台启用，无需额外写代码
 
-## 现在已经带了什么
+## 站点结构
 
-- 首页、归档、文章详情、关于页、404 页
-- RSS 输出
-- 轻量站内搜索 `src/pages/search.astro`
-- 已启用的 giscus 评论组件 `src/components/Comments.astro`
-- Cloudflare Pages 可识别的安全响应头 `public/_headers`
-
-## 后续可以继续加
-
-- 打开 `giscus` 评论
-- 等文章更多后把搜索升级成 `Pagefind`
-- 真有需求时再加 Cloudflare Workers 做表单、重定向或自动化
+```text
+.
+|- source/
+|  |- _posts/
+|  |- about/
+|  |- archives/
+|  |- categories/
+|  |- tags/
+|  |- css/
+|  `- img/
+|- _config.yml
+|- _config.butterfly.yml
+`- package.json
+```

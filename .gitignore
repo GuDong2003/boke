@@ -1,6 +1,11 @@
 node_modules/
-dist/
+.deploy_git/
+.cache/
 .astro/
 .wrangler/
+dist/
+db.json
+public/
+themes/
 .DS_Store
 .env

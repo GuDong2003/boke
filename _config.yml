@@ -1,0 +1,80 @@
+title: 咕咚的小站
+subtitle: 见字如面，慢慢更新。
+description: 一个关于写作、记录、项目与折腾的个人博客。
+keywords:
+  - 咕咚
+  - 博客
+  - 写作
+  - 记录
+author: 咕咚
+language: zh-CN
+timezone: Asia/Shanghai
+url: https://gudong226.linuxdo.space
+permalink: :year/:month/:day/:title/
+permalink_defaults:
+pretty_urls:
+  trailing_index: false
+  trailing_html: false
+
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+
+theme: butterfly
+
+per_page: 6
+pagination_dir: page
+
+post_asset_folder: false
+relative_link: false
+future: true
+
+syntax_highlighter: highlight.js
+highlight:
+  enable: true
+  line_number: true
+  auto_detect: false
+  tab_replace: ''
+  wrap: true
+prismjs:
+  enable: false
+
+index_generator:
+  path: ''
+  per_page: 6
+  order_by: -date
+
+archive_generator:
+  per_page: 12
+  yearly: true
+  monthly: true
+  daily: false
+  order_by: -date
+
+category_generator:
+  per_page: 12
+  order_by: -date
+
+tag_generator:
+  per_page: 12
+  order_by: -date
+
+search:
+  path: search.xml
+  field: post
+  content: true
+  format: striptags
+
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+
+sitemap:
+  path: sitemap.xml
+
+server:
+  port: 4000
