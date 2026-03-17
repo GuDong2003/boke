@@ -52,7 +52,8 @@ body::before {
 }
 
 #page-header.full_page {
-  min-height: 720px;
+  height: 100vh;
+  min-height: 100svh;
 }
 
 #page-header.full_page #site-info {
@@ -402,7 +403,8 @@ blockquote {
   }
 
   #page-header.full_page {
-    min-height: 600px;
+    height: 100vh;
+    min-height: 100svh;
   }
 
   .recent-post-item .post_cover {
@@ -412,7 +414,8 @@ blockquote {
 
 @media (max-width: 768px) {
   #page-header.full_page {
-    min-height: 540px;
+    height: 100vh;
+    min-height: 100svh;
   }
 
   #site-title {

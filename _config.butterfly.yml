@@ -57,8 +57,8 @@ post_meta:
     tags: true
     label: true
 
-index_site_info_top: 44%
-index_top_img_height: 520px
+index_site_info_top: 46%
+index_top_img_height: 100vh
 
 subtitle:
   enable: true
