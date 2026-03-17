@@ -213,3 +213,6 @@ display_mode: light
 inject:
   head:
     - <link rel="stylesheet" href="/css/custom.css">
+    - <link rel="stylesheet" href="/css/shooting_stars.css">
+  bottom:
+    - <script src="/js/shooting_stars.js"></script>

@@ -1,0 +1,62 @@
+:root {
+  --shooting-star-color: rgba(255, 255, 255, 0.85);
+  --shooting-star-tail: rgba(255, 255, 255, 0.35);
+  --shooting-star-glow: rgba(170, 205, 255, 0.45);
+}
+
+#shooting-stars {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.shooting-star {
+  position: absolute;
+  width: var(--star-width, 140px);
+  height: 2px;
+  background: linear-gradient(90deg, var(--shooting-star-color), transparent);
+  opacity: 0.9;
+  filter: drop-shadow(0 0 6px var(--shooting-star-glow));
+  transform: rotate(315deg);
+  animation-name: shooting-star-fly;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.shooting-star::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--shooting-star-color);
+  transform: translateY(-50%);
+  box-shadow:
+    0 0 6px var(--shooting-star-color),
+    0 0 14px var(--shooting-star-glow);
+}
+
+@keyframes shooting-star-fly {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0) rotate(315deg);
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(70vw, 70vh, 0) rotate(315deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .shooting-star {
+    height: 1.5px;
+    filter: drop-shadow(0 0 4px var(--shooting-star-glow));
+  }
+}
