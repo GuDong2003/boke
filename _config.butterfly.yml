@@ -1,5 +1,5 @@
 nav:
-  fixed: false
+  fixed: true
 
 menu:
   首页: / || fas fa-home
@@ -9,8 +9,8 @@ menu:
   关于: /about/ || fas fa-user
 
 social:
-  fab fa-github: https://github.com/GuDong2003 || GitHub || '#24292e'
-  fas fa-rss: /atom.xml || RSS || '#ff6b35'
+  fab fa-github: https://github.com/GuDong2003 || GitHub || '#fff8f0'
+  fas fa-rss: /atom.xml || RSS || '#ffe3bd'
 
 favicon: /img/favicon.svg
 
@@ -57,15 +57,15 @@ post_meta:
     tags: true
     label: true
 
-index_site_info_top: 42%
-index_top_img_height: 460px
+index_site_info_top: 44%
+index_top_img_height: 520px
 
 subtitle:
   enable: true
   effect: true
   sub:
-    - 见字如面，慢慢更新。
-    - 写一点文章，记一点折腾。
+    - 见字如面，慢慢把生活和折腾写下来。
+    - 记录灵感、文章、项目，也记录一点当下。
     - 欢迎来到咕咚的小站。
 
 index_layout: 3
@@ -96,7 +96,7 @@ footer:
   copyright:
     enable: true
     version: false
-  custom_text: 缓慢更新中，欢迎常来坐坐。
+  custom_text: 在自己的角落里，慢慢把想法写成文章。
 
 aside:
   enable: true
@@ -110,15 +110,15 @@ aside:
     category: true
   card_author:
     enable: true
-    description: 把写作、项目和灵感慢慢收进一个小站。
+    description: 记录文章、折腾、项目和一些值得回看的时刻。
     button:
       enable: true
       icon: fab fa-github
-      text: Follow Me
+      text: 去 GitHub 看看
       link: https://github.com/GuDong2003
   card_announcement:
     enable: true
-    content: 欢迎来到咕咚的小站~
+    content: 这里会慢慢长出文章、分类、标签和一点属于自己的风格。
   card_recent_post:
     enable: true
     limit: 5
@@ -164,6 +164,11 @@ wordcount:
   post_wordcount: true
   min2read: true
   total_wordcount: true
+
+busuanzi:
+  site_uv: false
+  site_pv: false
+  page_pv: false
 
 search:
   use: local_search
