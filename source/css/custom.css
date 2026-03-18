@@ -48,7 +48,7 @@ body::before {
 
 #page-header::before {
   background:
-    linear-gradient(180deg, rgba(15, 26, 39, 0.18), rgba(15, 26, 39, 0.34)) !important;
+    linear-gradient(180deg, rgba(0, 0, 0, 0.38), rgba(0, 0, 0, 0.68)) !important;
 }
 
 #page-header.full_page {
@@ -86,14 +86,16 @@ body::before {
 }
 
 #site-title {
-  font-size: clamp(3.2rem, 8vw, 5.7rem) !important;
-  letter-spacing: -0.04em;
+  color: #fff;
+  font-size: clamp(3.4rem, 7.2vw, 5.1rem) !important;
+  letter-spacing: -0.02em;
 }
 
 #site-subtitle {
-  margin-top: 22px;
-  font-size: 1.08rem;
-  letter-spacing: 0.06em;
+  margin-top: 14px;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.85);
 }
 
 #nav {
@@ -137,7 +139,7 @@ body::before {
   display: flex !important;
   align-items: center !important;
   height: 100% !important;
-  margin-left: 14px !important;
+  margin-left: 12px !important;
   padding: 0 !important;
 }
 
@@ -145,7 +147,7 @@ body::before {
   display: flex !important;
   align-items: center !important;
   height: 100% !important;
-  margin: 0 0 0 14px !important;
+  margin: 0 0 0 12px !important;
   padding: 0 !important;
 }
 
@@ -161,11 +163,12 @@ body::before {
   position: relative !important;
   display: flex !important;
   align-items: center !important;
-  height: 40px !important;
-  line-height: 40px !important;
+  height: 38px !important;
+  line-height: 38px !important;
   padding: 0 4px !important;
   transition: all 0.3s ease !important;
   cursor: pointer !important;
+  font-size: 0.95rem;
 }
 
 #menus .menus_items .menus_item .site-page i,
@@ -175,6 +178,7 @@ body::before {
   height: 100% !important;
   margin-right: 4px !important;
   vertical-align: middle !important;
+  font-size: 0.88rem;
 }
 
 #search-button .search i {
@@ -210,14 +214,13 @@ body::before {
 
 #site_social_icons .social-icon,
 .card-info-social-icons .social-icon {
-  margin: 0 6px;
-  width: 42px;
-  height: 42px;
+  margin: 0 4px;
+  width: 34px;
+  height: 34px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.16);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow: none;
 }
 
 #recent-posts > .recent-post-items > .recent-post-item,
@@ -227,9 +230,9 @@ body::before {
 #tag,
 #category,
 #post {
-  background: var(--g-surface);
-  border: 1px solid var(--g-border);
-  box-shadow: var(--g-shadow);
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
 }
@@ -249,8 +252,8 @@ body::before {
 
 #recent-posts > .recent-post-items > .recent-post-item:hover {
   transform: translateY(-4px);
-  border-color: rgba(255, 255, 255, 0.56);
-  box-shadow: 0 28px 72px rgba(15, 30, 47, 0.16);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 28px 72px rgba(0, 0, 0, 0.5);
 }
 
 .recent-post-item .post_cover {
@@ -270,7 +273,7 @@ body::before {
 }
 
 .recent-post-info .article-title {
-  color: var(--g-title);
+  color: #fff;
   font-size: 1.58rem;
   line-height: 1.22;
 }
@@ -296,7 +299,7 @@ body::before {
 #article-container,
 #article-container p,
 #article-container li {
-  color: var(--g-text-soft);
+  color: rgba(255, 255, 255, 0.74);
 }
 
 .recent-post-info .content {
@@ -318,11 +321,11 @@ body::before {
 }
 
 #aside-content .card-widget {
-  box-shadow: var(--g-shadow-soft);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.35);
 }
 
 .card-info {
-  background: var(--g-surface-strong) !important;
+  background: rgba(0, 0, 0, 0.55) !important;
 }
 
 .card-info .avatar-img {
@@ -332,10 +335,10 @@ body::before {
 }
 
 .card-info .avatar-img img {
-  border: 1px solid rgba(255, 255, 255, 0.44);
+  border: 1px solid rgba(255, 255, 255, 0.28);
   border-radius: 34px;
-  box-shadow: 0 16px 40px rgba(15, 30, 47, 0.14);
-  background: rgba(255, 255, 255, 0.46);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+  background: rgba(255, 255, 255, 0.12);
 }
 
 .card-info .author-info-name {
@@ -358,7 +361,7 @@ body::before {
 }
 
 #aside-content .item-headline {
-  color: var(--g-title);
+  color: #fff;
   font-weight: 700;
 }
 
