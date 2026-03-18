@@ -58,7 +58,11 @@ body::before {
 
 #page-header.full_page #site-info {
   width: min(720px, calc(100vw - 32px));
-  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
   text-align: center;
 }
 
