@@ -1,5 +1,5 @@
 nav:
-  fixed: true
+  fixed: false
 
 menu:
   首页: / || fas fa-home
