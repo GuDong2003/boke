@@ -13,7 +13,7 @@
 
 ## 快速开始
 
-1. 安装 Node.js 20 或更高版本。
+1. 安装 Node.js 20.19.0 或更高版本（推荐 20.20.0）。
 2. 运行 `npm install`。
 3. 运行 `npm run dev`。
 4. 打开终端里 Hexo 输出的本地地址。
@@ -43,7 +43,7 @@ npx hexo new post "文章标题"
 
 - 构建命令：`npm run build`
 - 输出目录：`public`
-- Node 版本：`20`
+- Node 版本：`20.20.0`
 
 ## 评论与统计
 

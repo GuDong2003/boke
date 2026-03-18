@@ -18,6 +18,10 @@ pretty_urls:
 
 source_dir: source
 public_dir: public
+include:
+  - _headers
+skip_render:
+  - _headers
 tag_dir: tags
 archive_dir: archives
 category_dir: categories

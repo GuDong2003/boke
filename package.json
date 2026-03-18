@@ -2,6 +2,7 @@
   "name": "boke",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "npm@10.9.2",
   "scripts": {
     "clean": "node ./node_modules/hexo-cli/bin/hexo clean",
     "dev": "node ./node_modules/hexo-cli/bin/hexo server",
@@ -11,7 +12,7 @@
     "check": "node ./node_modules/hexo-cli/bin/hexo generate"
   },
   "engines": {
-    "node": ">=20.11.0"
+    "node": ">=20.19.0"
   },
   "hexo": {
     "version": "8.1.1"
