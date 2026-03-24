@@ -10,23 +10,48 @@
   </head>
   <body>
     <div class="admin-shell">
-      <header class="admin-topbar">
-        <div class="admin-brand">
+      <header class="admin-nav">
+        <a class="admin-brand" href="/" target="_blank" rel="noopener">
           <span class="admin-brand-icon">
             <img src="/img/favicon.svg" alt="" />
           </span>
-          <div class="admin-brand-copy">
-            <p class="admin-brand-title">咕咚的小站 · 内容管理</p>
-            <p class="admin-brand-subtitle">保存后会直接提交到 GitHub，并触发 Cloudflare Pages 自动部署。</p>
+          <span class="admin-brand-copy">
+            <span class="admin-brand-kicker">咕咚的小站</span>
+            <span class="admin-brand-title">内容管理</span>
+          </span>
+        </a>
+        <nav class="admin-nav-links" aria-label="快捷入口">
+          <a class="admin-nav-link" href="/" target="_blank" rel="noopener">主站</a>
+          <a class="admin-nav-link" href="/archives/" target="_blank" rel="noopener">归档</a>
+          <a class="admin-nav-link admin-nav-link-primary" href="https://github.com/GuDong2003/boke" target="_blank" rel="noopener">仓库</a>
+        </nav>
+      </header>
+      <section class="admin-hero" aria-label="后台概览">
+        <div class="admin-hero-copy">
+          <span id="admin-view-label" class="admin-chip">内容后台</span>
+          <h1 id="admin-view-title" class="admin-hero-title">像写文章一样管理你的站点</h1>
+          <p id="admin-view-description" class="admin-hero-description">
+            这里直接连接 GitHub 仓库。保存内容后会提交到源码，并触发 Cloudflare Pages 自动部署。
+          </p>
+        </div>
+        <div class="admin-hero-side">
+          <div class="admin-highlight">
+            <span class="admin-highlight-label">当前流程</span>
+            <p id="admin-view-note" class="admin-highlight-text">
+              登录 GitHub，编辑内容，保存后自动进入仓库与部署流程。
+            </p>
+          </div>
+          <div class="admin-pills" aria-hidden="true">
+            <span class="admin-pill">GitHub 提交</span>
+            <span class="admin-pill">Cloudflare 部署</span>
+            <span class="admin-pill">Decap CMS</span>
           </div>
         </div>
-        <div class="admin-actions">
-          <a class="admin-action" href="/" target="_blank" rel="noopener">查看主站</a>
-          <a class="admin-action admin-action-primary" href="https://github.com/GuDong2003/boke" target="_blank" rel="noopener">仓库</a>
+      </section>
+      <main class="admin-stage">
+        <div class="admin-stage-frame">
+          <div id="nc-root"></div>
         </div>
-      </header>
-      <main class="admin-main">
-        <div id="nc-root"></div>
       </main>
     </div>
     <script defer src="/admin/admin.js"></script>
