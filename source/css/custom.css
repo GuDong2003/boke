@@ -241,15 +241,21 @@ body::before {
 #site_social_icons .social-icon[title='Linux Do']::before,
 .card-info-social-icons .social-icon[title='Linux Do']::before {
   content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
   width: 22px;
   height: 22px;
   background: url('/img/linuxdo.svg') center / contain no-repeat;
-  transition: all 0.3s !important;
+  transform: translate(-50%, -50%) rotate(0deg);
+  transform-origin: center;
+  transition: transform 0.3s !important;
 }
 
 #site_social_icons .social-icon[title='Linux Do']:hover::before,
 .card-info-social-icons .social-icon[title='Linux Do']:hover::before {
-  transform: rotate(360deg) !important;
+  transform: translate(-50%, -50%) rotate(360deg) !important;
 }
 
 #recent-posts > .recent-post-items > .recent-post-item,
