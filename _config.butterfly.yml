@@ -16,7 +16,7 @@ favicon: /img/favicon.svg
 
 avatar:
   img: /img/avatar.svg
-  effect: true
+  effect: false
 
 default_top_img: /img/site-bg.svg
 index_img: /img/site-bg.svg
@@ -61,7 +61,7 @@ index_site_info_top: 50%
 index_top_img_height: 100vh
 
 subtitle:
-  enable: true
+  enable: false
   effect: true
   sub:
     - 见字如面，慢慢把生活和折腾写下来。
