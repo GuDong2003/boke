@@ -217,6 +217,10 @@ body::before {
 
 #site_social_icons .social-icon,
 .card-info-social-icons .social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
   margin: 0 4px;
   width: 34px;
   height: 34px;
@@ -224,6 +228,22 @@ body::before {
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.22);
   box-shadow: none;
+}
+
+#site_social_icons .social-icon[title='Linux Do'] i,
+.card-info-social-icons .social-icon[title='Linux Do'] i {
+  opacity: 0;
+  width: 0;
+  margin: 0;
+  font-size: 0;
+}
+
+#site_social_icons .social-icon[title='Linux Do']::before,
+.card-info-social-icons .social-icon[title='Linux Do']::before {
+  content: '';
+  width: 18px;
+  height: 18px;
+  background: url('/img/linuxdo.svg') center / contain no-repeat;
 }
 
 #recent-posts > .recent-post-items > .recent-post-item,

@@ -10,6 +10,8 @@ menu:
 
 social:
   fab fa-github: https://github.com/GuDong2003 || GitHub || '#fff8f0'
+  fab fa-bilibili: https://space.bilibili.com/93688998 || 哔哩哔哩 || '#a8d8ff'
+  fas fa-comments: https://linux.do/u/gudong226/summary || Linux Do || '#d9f2c9'
   fas fa-rss: /atom.xml || RSS || '#ffe3bd'
 
 favicon: /img/favicon.svg
