@@ -1,7 +1,11 @@
 (function () {
   var body = document.body;
-  var observer = null;
+  var iframe = null;
   var rafId = 0;
+  var suppressParentHashChange = false;
+  var frameLoaded = false;
+  var frameOrigin = window.location.origin;
+  var frameBasePath = '/admin/cms.html';
   var viewCopy = {
     dashboard: {
       label: '内容后台',
@@ -29,16 +33,26 @@
     },
   };
 
+  function normalizeHash(hash) {
+    if (!hash || hash === '#') {
+      return '#/';
+    }
+
+    return hash;
+  }
+
   function getAdminView(hash) {
-    if (/^#\/collections\/[^/]+\/entries\/[^/]+/.test(hash)) {
+    var currentHash = normalizeHash(hash);
+
+    if (/^#\/collections\/[^/]+\/entries\/[^/]+/.test(currentHash)) {
       return 'entry';
     }
 
-    if (/^#\/collections\/[^/]+/.test(hash)) {
+    if (/^#\/collections\/[^/]+/.test(currentHash)) {
       return 'collection';
     }
 
-    if (/^#\/media/.test(hash)) {
+    if (/^#\/media/.test(currentHash)) {
       return 'media';
     }
 
@@ -57,7 +71,7 @@
       return;
     }
 
-    var view = getAdminView(window.location.hash || '#/');
+    var view = getAdminView(window.location.hash);
     var copy = viewCopy[view] || viewCopy.dashboard;
     var title = copy.title + ' · 咕咚的小站';
 
@@ -69,9 +83,43 @@
     document.title = title;
   }
 
-  function syncReadyState() {
-    var ncRoot = document.getElementById('nc-root');
-    body.dataset.adminReady = ncRoot && ncRoot.childElementCount > 0 ? 'true' : 'false';
+  function setReadyState(isReady) {
+    if (!body) {
+      return;
+    }
+
+    body.dataset.adminReady = isReady ? 'true' : 'false';
+  }
+
+  function updateIframeSource(forceReload) {
+    var desiredHash = normalizeHash(window.location.hash);
+    var desiredSrc = frameBasePath + desiredHash;
+
+    if (!iframe) {
+      return;
+    }
+
+    if (!frameLoaded || forceReload) {
+      if (iframe.getAttribute('src') !== desiredSrc) {
+        iframe.setAttribute('src', desiredSrc);
+      }
+
+      setReadyState(false);
+      return;
+    }
+
+    try {
+      iframe.contentWindow.postMessage(
+        {
+          type: 'admin-shell-set-hash',
+          hash: desiredHash,
+        },
+        frameOrigin
+      );
+    } catch (error) {
+      iframe.setAttribute('src', desiredSrc);
+      setReadyState(false);
+    }
   }
 
   function scheduleApply() {
@@ -82,28 +130,69 @@
     rafId = window.requestAnimationFrame(function () {
       rafId = 0;
       applyAdminState();
-      syncReadyState();
+      updateIframeSource(false);
     });
   }
 
-  function initObserver() {
-    var ncRoot = document.getElementById('nc-root');
-    if (!ncRoot || observer) {
+  function syncParentHash(nextHash) {
+    var normalizedHash = normalizeHash(nextHash);
+
+    if (normalizeHash(window.location.hash) === normalizedHash) {
       return;
     }
 
-    observer = new MutationObserver(scheduleApply);
-    observer.observe(ncRoot, {
-      childList: true,
-      subtree: true,
-    });
+    suppressParentHashChange = true;
+    window.location.hash = normalizedHash;
+    window.setTimeout(function () {
+      suppressParentHashChange = false;
+    }, 0);
+  }
+
+  function handleFrameMessage(event) {
+    var data = event.data || {};
+
+    if (event.origin !== frameOrigin || !data.type) {
+      return;
+    }
+
+    if (data.type === 'admin-cms-ready') {
+      frameLoaded = true;
+      setReadyState(true);
+      syncParentHash(data.hash);
+      applyAdminState();
+      return;
+    }
+
+    if (data.type === 'admin-cms-hash') {
+      syncParentHash(data.hash);
+      applyAdminState();
+      return;
+    }
+
+    if (data.type === 'admin-cms-loading') {
+      setReadyState(false);
+    }
   }
 
   document.addEventListener('DOMContentLoaded', function () {
+    iframe = document.getElementById('admin-cms-frame');
+    setReadyState(false);
     scheduleApply();
-    initObserver();
+
+    if (iframe) {
+      iframe.addEventListener('load', function () {
+        frameLoaded = true;
+      });
+      updateIframeSource(true);
+    }
   });
 
-  window.addEventListener('hashchange', scheduleApply);
-  window.addEventListener('resize', scheduleApply, { passive: true });
+  window.addEventListener('hashchange', function () {
+    if (suppressParentHashChange) {
+      return;
+    }
+
+    scheduleApply();
+  });
+  window.addEventListener('message', handleFrameMessage);
 })();

@@ -8,7 +8,7 @@
     <link rel="icon" href="/img/favicon.svg" />
     <link rel="stylesheet" href="/admin/admin.css" />
   </head>
-  <body>
+  <body data-admin-view="dashboard" data-admin-ready="false">
     <div class="admin-shell">
       <header class="admin-nav">
         <a class="admin-brand" href="/" target="_blank" rel="noopener">
@@ -50,11 +50,27 @@
       </section>
       <main class="admin-stage">
         <div class="admin-stage-frame">
-          <div id="nc-root"></div>
+          <div class="admin-stage-head">
+            <div class="admin-stage-copy">
+              <span class="admin-stage-label">编辑器画布</span>
+              <p class="admin-stage-text">功能由 Decap CMS 提供，外层界面按主站视觉重写。</p>
+            </div>
+            <div class="admin-stage-actions">
+              <a class="admin-stage-link" href="/admin/cms.html" target="_blank" rel="noopener">单独打开编辑器</a>
+            </div>
+          </div>
+          <div class="admin-frame-shell">
+            <div class="admin-frame-loading" id="admin-frame-loading">正在载入内容后台...</div>
+            <iframe
+              id="admin-cms-frame"
+              class="admin-cms-frame"
+              title="咕咚的小站内容管理编辑器"
+              loading="eager"
+            ></iframe>
+          </div>
         </div>
       </main>
     </div>
     <script defer src="/admin/admin.js"></script>
-    <script defer src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   </body>
 </html>
