@@ -127,6 +127,10 @@
       link.appendChild(icon)
       footerText.appendChild(link)
     }
+
+    if (link.parentElement !== footerText) {
+      footerText.appendChild(link)
+    }
   }
 
   const applySiteProfile = async () => {
