@@ -90,13 +90,13 @@ body::before {
 
 #site-title {
   color: #fff;
-  font-size: clamp(2.4rem, 5vw, 3.6rem) !important;
+  font-size: clamp(2rem, 4.2vw, 2.85rem) !important;
   letter-spacing: -0.02em;
 }
 
 #site-subtitle {
   margin-top: 14px;
-  font-size: 1rem;
+  font-size: clamp(1rem, 2.2vw, 1.28rem);
   letter-spacing: 0.02em;
   color: rgba(255, 255, 255, 0.85);
 }
@@ -553,11 +553,11 @@ blockquote {
   }
 
   #site-title {
-    font-size: 2.25rem !important;
+    font-size: 1.95rem !important;
   }
 
   #site-subtitle {
-    font-size: 0.98rem;
+    font-size: 1rem;
   }
 
   .recent-post-item .recent-post-info {
