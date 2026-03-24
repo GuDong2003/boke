@@ -50,6 +50,7 @@ export async function onRequest(context) {
   const { request, env } = context;
   const clientId = env.GITHUB_CLIENT_ID;
   const clientSecret = env.GITHUB_CLIENT_SECRET;
+  const allowedLogin = 'GuDong2003';
 
   if (!clientId || !clientSecret) {
     return new Response('Missing GitHub OAuth environment variables', {
@@ -104,6 +105,38 @@ export async function onRequest(context) {
 
     if (!tokenResponse.ok || result.error || !result.access_token) {
       return htmlResponse('error', result, 401);
+    }
+
+    const userResponse = await fetch('https://api.github.com/user', {
+      headers: {
+        accept: 'application/vnd.github+json',
+        authorization: `Bearer ${result.access_token}`,
+        'user-agent': 'gudong-boke-decap-cms',
+      },
+    });
+
+    const user = await userResponse.json();
+
+    if (!userResponse.ok || !user.login) {
+      return htmlResponse(
+        'error',
+        {
+          error: 'user_lookup_failed',
+          error_description: 'Failed to verify the GitHub account.',
+        },
+        401,
+      );
+    }
+
+    if (user.login !== allowedLogin) {
+      return htmlResponse(
+        'error',
+        {
+          error: 'forbidden_user',
+          error_description: `Only ${allowedLogin} can access this admin.`,
+        },
+        403,
+      );
     }
 
     return htmlResponse(
