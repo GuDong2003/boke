@@ -18,3 +18,19 @@ body {
 #nc-root {
   min-height: 100%;
 }
+
+#nc-root [aria-label='Account options dropdown'] {
+  border-radius: 999px;
+}
+
+#nc-root [class*='AvatarPlaceholderIcon'] {
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 999px !important;
+  background: url('/img/avatar.svg') center / cover no-repeat !important;
+  overflow: hidden;
+}
+
+#nc-root [class*='AvatarPlaceholderIcon'] svg {
+  opacity: 0 !important;
+}
