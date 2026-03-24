@@ -9,3 +9,5 @@ public/
 themes/
 .DS_Store
 .env
+_config.admin.local.yml
+_multiconfig.yml

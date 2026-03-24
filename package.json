@@ -6,6 +6,7 @@
   "scripts": {
     "clean": "node ./node_modules/hexo-cli/bin/hexo clean",
     "dev": "node ./node_modules/hexo-cli/bin/hexo server",
+    "dev:admin": "node ./node_modules/hexo-cli/bin/hexo server --config _config.yml,_config.admin.local.yml",
     "start": "node ./node_modules/hexo-cli/bin/hexo server",
     "build": "node ./node_modules/hexo-cli/bin/hexo generate",
     "preview": "node ./node_modules/hexo-cli/bin/hexo server",
