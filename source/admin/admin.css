@@ -157,7 +157,6 @@ body::before {
   margin: 0 auto;
   border: 1px solid var(--admin-border);
   border-radius: 28px;
-  overflow: hidden;
   background: var(--admin-surface-strong);
   box-shadow: var(--admin-shadow);
 }
@@ -191,32 +190,6 @@ body::before {
   color: var(--admin-sea) !important;
 }
 
-#nc-root button,
-#nc-root [role='button'],
-#nc-root a[href][class],
-#nc-root summary {
-  border-radius: 999px !important;
-  border: 1px solid var(--admin-border-soft) !important;
-  background: rgba(255, 255, 255, 0.7) !important;
-  color: var(--admin-text) !important;
-  box-shadow: none !important;
-  transition:
-    transform 0.2s ease,
-    border-color 0.2s ease,
-    background 0.2s ease,
-    box-shadow 0.2s ease !important;
-}
-
-#nc-root button:hover,
-#nc-root [role='button']:hover,
-#nc-root a[href][class]:hover,
-#nc-root summary:hover {
-  transform: translateY(-1px);
-  border-color: rgba(210, 104, 59, 0.34) !important;
-  background: rgba(255, 255, 255, 0.92) !important;
-  box-shadow: 0 10px 24px rgba(210, 104, 59, 0.12) !important;
-}
-
 #nc-root input:not([type='checkbox']):not([type='radio']),
 #nc-root textarea,
 #nc-root select {
@@ -239,58 +212,16 @@ body::before {
   min-height: 140px;
 }
 
-#nc-root [role='tablist'],
-#nc-root [role='toolbar'],
-#nc-root nav,
-#nc-root aside,
-#nc-root [role='dialog'],
-#nc-root [role='menu'],
-#nc-root [class*='Toolbar'],
-#nc-root [class*='Pane'],
-#nc-root [class*='Sidebar'],
-#nc-root [class*='Card'] {
-  border-color: var(--admin-border-soft) !important;
-  background: rgba(255, 252, 248, 0.78) !important;
-  box-shadow: var(--admin-shadow-soft) !important;
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-}
-
-#nc-root [role='tablist'],
-#nc-root [role='toolbar'],
-#nc-root nav {
-  position: sticky;
-  top: 0;
-  z-index: 5;
-}
-
-#nc-root [role='tab'],
-#nc-root [class*='Tab'] {
-  border-radius: 999px !important;
-}
-
-#nc-root [role='main'],
-#nc-root main,
-#nc-root section,
-#nc-root article,
-#nc-root form,
-#nc-root [class*='Collection'],
-#nc-root [class*='Editor'],
-#nc-root [class*='ControlPane'],
-#nc-root [class*='EditorContainer'] {
-  color: var(--admin-text) !important;
-}
-
 #nc-root [role='dialog'],
 #nc-root [class*='Modal'] {
   border-radius: 28px !important;
+  border-color: var(--admin-border-soft) !important;
+  box-shadow: var(--admin-shadow-soft) !important;
 }
 
-#nc-root [class*='List'] > li,
-#nc-root [class*='List'] > div,
-#nc-root details,
 #nc-root fieldset {
-  border-radius: 20px !important;
+  border-radius: 20px;
+  border-color: var(--admin-border-soft);
 }
 
 #nc-root code,
