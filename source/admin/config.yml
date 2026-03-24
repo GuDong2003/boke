@@ -111,3 +111,53 @@ collections:
           - label: 正文
             name: body
             widget: markdown
+
+  - name: site_settings
+    label: 站点文案
+    delete: false
+    editor:
+      preview: false
+    files:
+      - label: 首页标语
+        name: homepage_copy
+        file: source/site-copy.json
+        format: json
+        fields:
+          - label: 首页动态标语
+            name: homepage_subtitles
+            widget: list
+            summary: '{{fields.subtitle}}'
+            min: 1
+            field:
+              label: 标语
+              name: subtitle
+              widget: string
+      - label: 站点资料
+        name: site_profile
+        file: source/site-profile.json
+        format: json
+        fields:
+          - label: 头像
+            name: avatar
+            widget: image
+            required: false
+          - label: 网站图标
+            name: favicon
+            widget: image
+            required: false
+          - label: 作者名
+            name: author_name
+            widget: string
+            required: false
+          - label: 作者简介
+            name: author_description
+            widget: text
+            required: false
+          - label: 公告
+            name: announcement
+            widget: text
+            required: false
+          - label: 页脚文案
+            name: footer_text
+            widget: text
+            required: false

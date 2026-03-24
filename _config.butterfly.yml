@@ -217,4 +217,5 @@ inject:
     - <link rel="stylesheet" href="/css/custom.css">
     - <link rel="stylesheet" href="/css/shooting_stars.css">
   bottom:
+    - <script src="/js/site-copy.js"></script>
     - <script src="/js/shooting_stars.js"></script>

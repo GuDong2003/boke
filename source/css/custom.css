@@ -517,6 +517,39 @@ blockquote {
   color: #fff3dd;
 }
 
+.footer_custom_text {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.42rem;
+}
+
+.footer-admin-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.55rem;
+  height: 1.55rem;
+  opacity: 0.82;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease,
+    filter 0.2s ease;
+}
+
+.footer-admin-link:hover {
+  opacity: 1;
+  transform: translateY(-1px) scale(1.08);
+  filter: drop-shadow(0 4px 12px rgba(210, 104, 59, 0.28));
+}
+
+.footer-admin-link img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 @keyframes avatar-breathing-glow {
   from {
     box-shadow:
