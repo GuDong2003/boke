@@ -246,8 +246,15 @@ body::before {
   transform-origin: center;
 }
 
+#site_social_icons .social-icon:hover,
+.card-info-social-icons .social-icon:hover {
+  transform: none !important;
+}
+
 #site_social_icons .social-icon:not([title='Linux Do']):hover i,
-.card-info-social-icons .social-icon:not([title='Linux Do']):hover i {
+.card-info-social-icons .social-icon:not([title='Linux Do']):hover i,
+#site_social_icons .social-icon:not([title='Linux Do']) i:hover,
+.card-info-social-icons .social-icon:not([title='Linux Do']) i:hover {
   transform: translate(-50%, -50%) rotate(360deg);
 }
 
