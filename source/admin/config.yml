@@ -77,10 +77,16 @@ collections:
         name: cover
         widget: image
         required: false
+        choose_url: false
+        media_folder: /source/img/uploads
+        public_folder: /img/uploads
       - label: 顶图
         name: top_img
         widget: image
         required: false
+        choose_url: false
+        media_folder: /source/img/uploads
+        public_folder: /img/uploads
       - label: 正文
         name: body
         widget: markdown
@@ -108,6 +114,9 @@ collections:
             name: top_img
             widget: image
             required: false
+            choose_url: false
+            media_folder: /source/img/uploads
+            public_folder: /img/uploads
           - label: 正文
             name: body
             widget: markdown
@@ -141,10 +150,16 @@ collections:
             name: avatar
             widget: image
             required: false
+            choose_url: false
+            media_folder: /source/img/uploads
+            public_folder: /img/uploads
           - label: 网站图标
             name: favicon
             widget: image
             required: false
+            choose_url: false
+            media_folder: /source/img/uploads
+            public_folder: /img/uploads
           - label: 作者名
             name: author_name
             widget: string
