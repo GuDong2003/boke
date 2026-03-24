@@ -4,9 +4,31 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex,nofollow" />
-    <title>内容管理 | 咕咚的小站</title>
+    <title>咕咚的小站 · 内容管理</title>
+    <link rel="icon" href="/img/favicon.svg" />
+    <link rel="stylesheet" href="/admin/admin.css" />
   </head>
   <body>
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <div class="admin-shell">
+      <header class="admin-topbar">
+        <div class="admin-brand">
+          <span class="admin-brand-icon">
+            <img src="/img/admin-fox.svg" alt="" />
+          </span>
+          <div class="admin-brand-copy">
+            <p class="admin-brand-title">咕咚的小站 · 内容管理</p>
+            <p class="admin-brand-subtitle">保存后会直接提交到 GitHub，并触发 Cloudflare Pages 自动部署。</p>
+          </div>
+        </div>
+        <div class="admin-actions">
+          <a class="admin-action" href="/" target="_blank" rel="noopener">查看主站</a>
+          <a class="admin-action admin-action-primary" href="https://github.com/GuDong2003/boke" target="_blank" rel="noopener">仓库</a>
+        </div>
+      </header>
+      <main class="admin-main">
+        <div id="nc-root"></div>
+      </main>
+    </div>
+    <script defer src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   </body>
 </html>
