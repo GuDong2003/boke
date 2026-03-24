@@ -61,12 +61,12 @@ index_site_info_top: 50%
 index_top_img_height: 100vh
 
 subtitle:
-  enable: false
+  enable: true
   effect: true
   sub:
-    - 见字如面，慢慢把生活和折腾写下来。
-    - 记录灵感、文章、项目，也记录一点当下。
-    - 欢迎来到咕咚的小站。
+    - 这里没有标准答案，只有持续更新的思考。
+    - 生活在走，想法在变，留下来的字会替我说话。
+    - 折腾技术，整理思绪，也给日常留一点位置。
 
 index_layout: 3
 
