@@ -45,6 +45,19 @@ npx hexo new post "文章标题"
 - 输出目录：`public`
 - Node 版本：`20.20.0`
 
+## Decap CMS 配置
+
+- 后台地址：`/admin/`
+- 后台配置文件：`source/admin/config.yml`
+- GitHub OAuth 回调地址：`https://gudong226.linuxdo.space/api/callback`
+- Cloudflare Pages 环境变量：
+  - `GITHUB_CLIENT_ID`
+  - `GITHUB_CLIENT_SECRET`
+- GitHub OAuth App 建议填写：
+  - Homepage URL：`https://gudong226.linuxdo.space`
+  - Authorization callback URL：`https://gudong226.linuxdo.space/api/callback`
+- 登录后在后台保存内容，会直接提交到 GitHub `main` 分支，再触发 Cloudflare Pages 自动部署。
+
 ## 评论与统计
 
 - 评论使用 `Giscus`，配置在 `_config.butterfly.yml`

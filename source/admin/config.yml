@@ -1,0 +1,113 @@
+locale: zh_Hans
+site_url: https://gudong226.linuxdo.space
+display_url: https://gudong226.linuxdo.space
+logo_url: /img/favicon.svg
+
+backend:
+  name: github
+  repo: GuDong2003/boke
+  branch: main
+  base_url: https://gudong226.linuxdo.space
+  auth_endpoint: /api/auth
+  site_domain: gudong226.linuxdo.space
+
+publish_mode: simple
+media_folder: source/img/uploads
+public_folder: /img/uploads
+
+editor:
+  preview: false
+
+slug:
+  encoding: unicode
+
+collections:
+  - name: posts
+    label: 文章
+    label_singular: 文章
+    folder: source/_posts
+    create: true
+    delete: true
+    extension: md
+    format: frontmatter
+    sortable_fields:
+      - date
+      - updated
+      - title
+    summary: '{{title}}'
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    fields:
+      - label: 标题
+        name: title
+        widget: string
+      - label: 发布时间
+        name: date
+        widget: datetime
+        format: YYYY-MM-DD HH:mm:ss
+        date_format: YYYY-MM-DD
+        time_format: HH:mm:ss
+      - label: 更新时间
+        name: updated
+        widget: datetime
+        required: false
+        format: YYYY-MM-DD HH:mm:ss
+        date_format: YYYY-MM-DD
+        time_format: HH:mm:ss
+      - label: 摘要
+        name: description
+        widget: text
+        required: false
+      - label: 分类
+        name: categories
+        widget: list
+        required: false
+        field:
+          label: 分类
+          name: category
+          widget: string
+      - label: 标签
+        name: tags
+        widget: list
+        required: false
+        field:
+          label: 标签
+          name: tag
+          widget: string
+      - label: 封面
+        name: cover
+        widget: image
+        required: false
+      - label: 顶图
+        name: top_img
+        widget: image
+        required: false
+      - label: 正文
+        name: body
+        widget: markdown
+
+  - name: pages
+    label: 页面
+    delete: false
+    editor:
+      preview: false
+    files:
+      - label: 关于页
+        name: about
+        file: source/about/index.md
+        fields:
+          - label: 标题
+            name: title
+            widget: string
+          - label: 日期
+            name: date
+            widget: datetime
+            format: YYYY-MM-DD HH:mm:ss
+            date_format: YYYY-MM-DD
+            time_format: HH:mm:ss
+          - label: 顶图
+            name: top_img
+            widget: image
+            required: false
+          - label: 正文
+            name: body
+            widget: markdown
