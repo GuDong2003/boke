@@ -22,7 +22,7 @@ include:
   - _headers
 skip_render:
   - _headers
-  - admin/config.yml
+  - admin/**
 tag_dir: tags
 archive_dir: archives
 category_dir: categories
