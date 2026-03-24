@@ -241,8 +241,14 @@ body::before {
   width: 20px;
   height: 20px;
   line-height: 1;
-  transform: translate(-50%, -50%);
+  transition: transform 0.4s ease;
+  transform: translate(-50%, -50%) rotate(0deg);
   transform-origin: center;
+}
+
+#site_social_icons .social-icon:not([title='Linux Do']):hover i,
+.card-info-social-icons .social-icon:not([title='Linux Do']):hover i {
+  transform: translate(-50%, -50%) rotate(360deg);
 }
 
 #site_social_icons .social-icon[title='Linux Do'] i,
