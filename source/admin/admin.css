@@ -12,6 +12,7 @@
   --admin-sea: #295a73;
   --admin-shadow: 0 20px 60px rgba(15, 30, 47, 0.12);
   --admin-shadow-soft: 0 12px 30px rgba(15, 30, 47, 0.08);
+  --admin-shell-offset: 120px;
 }
 
 html,
@@ -50,6 +51,9 @@ body::before {
 }
 
 .admin-topbar {
+  position: sticky;
+  top: 16px;
+  z-index: 60;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -155,6 +159,7 @@ body::before {
 .admin-main {
   width: min(1240px, calc(100vw - 48px));
   margin: 0 auto;
+  padding: 18px;
   border: 1px solid var(--admin-border);
   border-radius: 28px;
   background: var(--admin-surface-strong);
@@ -163,6 +168,7 @@ body::before {
 
 #nc-root {
   min-height: calc(100vh - 150px);
+  padding-top: 6px;
   color: var(--admin-text);
 }
 
@@ -190,6 +196,12 @@ body::before {
   color: var(--admin-sea) !important;
 }
 
+#nc-root label,
+#nc-root legend,
+#nc-root strong {
+  color: var(--admin-title) !important;
+}
+
 #nc-root input:not([type='checkbox']):not([type='radio']),
 #nc-root textarea,
 #nc-root select {
@@ -212,16 +224,83 @@ body::before {
   min-height: 140px;
 }
 
+#nc-root input[type='checkbox'],
+#nc-root input[type='radio'] {
+  accent-color: var(--admin-accent);
+}
+
+#nc-root [data-slate-editor='true'],
+#nc-root [contenteditable='true'] {
+  border: 1px solid var(--admin-border-soft);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45);
+}
+
+#nc-root hr {
+  border: 0;
+  border-top: 1px solid rgba(16, 37, 66, 0.08);
+}
+
 #nc-root [role='dialog'],
 #nc-root [class*='Modal'] {
   border-radius: 28px !important;
   border-color: var(--admin-border-soft) !important;
   box-shadow: var(--admin-shadow-soft) !important;
+  background: rgba(255, 252, 248, 0.96) !important;
 }
 
-#nc-root fieldset {
-  border-radius: 20px;
+#nc-root fieldset,
+.admin-cms-fieldset {
+  border-radius: 24px;
   border-color: var(--admin-border-soft);
+  background: rgba(255, 255, 255, 0.64);
+  box-shadow: 0 10px 24px rgba(15, 30, 47, 0.04);
+}
+
+.admin-cms-toolbar,
+.admin-cms-sidebar,
+.admin-cms-inline-toolbar {
+  border: 1px solid rgba(16, 37, 66, 0.08) !important;
+  border-radius: 24px !important;
+  background: rgba(255, 252, 248, 0.82) !important;
+  box-shadow: 0 12px 28px rgba(15, 30, 47, 0.06) !important;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+body[data-admin-view='entry'] .admin-cms-toolbar {
+  top: var(--admin-shell-offset) !important;
+  z-index: 35 !important;
+}
+
+body[data-admin-view='entry'] .admin-cms-inline-toolbar {
+  top: calc(var(--admin-shell-offset) + 74px) !important;
+  z-index: 30 !important;
+}
+
+body[data-admin-view='entry'] .admin-cms-main {
+  padding-top: 12px;
+  scroll-padding-top: calc(var(--admin-shell-offset) + 120px);
+}
+
+.admin-cms-form {
+  color: var(--admin-text);
+}
+
+.admin-cms-form button,
+.admin-cms-toolbar button,
+.admin-cms-sidebar button,
+.admin-cms-inline-toolbar button,
+.admin-cms-form summary,
+.admin-cms-toolbar a[href][class],
+.admin-cms-sidebar a[href][class] {
+  border-radius: 999px !important;
+}
+
+#nc-root [role='dialog'],
+#nc-root [class*='Modal'] {
+  overflow: hidden;
 }
 
 #nc-root code,
@@ -255,5 +334,17 @@ body::before {
 
   .admin-actions {
     justify-content: flex-start;
+  }
+
+  .admin-main {
+    padding: 14px;
+  }
+
+  body[data-admin-view='entry'] .admin-cms-toolbar {
+    top: calc(var(--admin-shell-offset) - 6px) !important;
+  }
+
+  body[data-admin-view='entry'] .admin-cms-inline-toolbar {
+    top: calc(var(--admin-shell-offset) + 62px) !important;
   }
 }
