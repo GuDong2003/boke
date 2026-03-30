@@ -1,0 +1,12 @@
+{
+  "enabled": true,
+  "label": "音乐角落",
+  "server": "netease",
+  "type": "song",
+  "id": "1966353373",
+  "volume": 0.45,
+  "autoplay": false,
+  "loop": "all",
+  "order": "list",
+  "mutex": true
+}
