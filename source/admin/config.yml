@@ -192,26 +192,73 @@ collections:
             widget: string
             required: false
             hint: 显示在悬浮播放器上的小标题，比如“音乐角落”
+          - label: 播放来源
+            name: sourceMode
+            widget: select
+            default: remote
+            required: false
+            options:
+              - label: 网易云音乐
+                value: remote
+              - label: 上传歌曲
+                value: upload
+            hint: 选择“上传歌曲”后，可以直接在下方上传 mp3、m4a、flac 等音频文件
           - label: 音乐来源
             name: server
             widget: select
             default: netease
+            required: false
             options:
               - label: 网易云音乐
                 value: netease
+            hint: 仅在“网易云音乐”模式下生效
           - label: 播放类型
             name: type
             widget: select
             default: song
+            required: false
             options:
               - label: 单曲
                 value: song
               - label: 歌单
                 value: playlist
+            hint: 仅在“网易云音乐”模式下生效
           - label: 音乐 ID
             name: id
             widget: string
-            hint: 单曲填歌曲 ID，歌单填歌单 ID，例如 1966353373
+            required: false
+            hint: 仅在“网易云音乐”模式下填写。单曲填歌曲 ID，歌单填歌单 ID，例如 1966353373
+          - label: 上传歌曲列表
+            name: tracks
+            widget: list
+            required: false
+            collapsed: true
+            hint: 仅在“上传歌曲”模式下使用。可以添加多首歌，播放器会按列表顺序或随机模式播放
+            summary: '{{fields.name}}'
+            fields:
+              - label: 歌曲名
+                name: name
+                widget: string
+                required: false
+                hint: 不填时会自动使用文件名作为歌曲标题
+              - label: 歌手
+                name: artist
+                widget: string
+                required: false
+              - label: 音频文件
+                name: url
+                widget: file
+                choose_url: false
+                media_folder: /source/audio/uploads
+                public_folder: /audio/uploads
+                hint: 上传本地歌曲文件，保存后会一起提交到仓库
+              - label: 封面
+                name: cover
+                widget: image
+                required: false
+                choose_url: false
+                media_folder: /source/img/uploads
+                public_folder: /img/uploads
           - label: 音量
             name: volume
             widget: number
