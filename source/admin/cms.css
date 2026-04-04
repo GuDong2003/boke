@@ -13,10 +13,87 @@ body {
   font-family:
     'PingFang SC', 'Hiragino Sans GB', 'Noto Sans CJK SC', 'Microsoft YaHei',
     'Segoe UI', sans-serif;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+[data-theme="dark"] body {
+  color: #c8cdd5;
+  background:
+    radial-gradient(circle at top left, rgba(80, 60, 40, 0.12), transparent 28%),
+    linear-gradient(180deg, #1e2230, #1a1e2a);
 }
 
 #nc-root {
   min-height: 100%;
+}
+
+[data-theme="dark"] #nc-root [class*='AppHeader'] {
+  background-color: #1e2336 !important;
+}
+
+[data-theme="dark"] #nc-root [class*='AppWrapper'] {
+  background-color: #1a1e2a !important;
+}
+
+[data-theme="dark"] #nc-root [class*='SidebarNavList'],
+[data-theme="dark"] #nc-root [class*='Sidebar'] > div {
+  background-color: #1e2336 !important;
+}
+
+[data-theme="dark"] #nc-root [class*='CardLink'],
+[data-theme="dark"] #nc-root [class*='ListCard'],
+[data-theme="dark"] #nc-root [class*='ControlPane'],
+[data-theme="dark"] #nc-root [class*='EntryCard'] {
+  background-color: #232840 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: #c8cdd5 !important;
+}
+
+[data-theme="dark"] #nc-root [class*='EditorContainer'],
+[data-theme="dark"] #nc-root [class*='ControlPaneContainer'] {
+  background-color: #1e2336 !important;
+}
+
+[data-theme="dark"] #nc-root [class*='ToolbarButton'],
+[data-theme="dark"] #nc-root [class*='TopBarButton'] {
+  color: #c8cdd5 !important;
+}
+
+[data-theme="dark"] #nc-root [class*='EditorToggle'] {
+  background-color: #232840 !important;
+  color: #c8cdd5 !important;
+}
+
+[data-theme="dark"] #nc-root button {
+  color: #c8cdd5;
+}
+
+[data-theme="dark"] #nc-root label,
+[data-theme="dark"] #nc-root h1,
+[data-theme="dark"] #nc-root h2,
+[data-theme="dark"] #nc-root h3 {
+  color: #e2e6ec !important;
+}
+
+[data-theme="dark"] #nc-root input,
+[data-theme="dark"] #nc-root textarea,
+[data-theme="dark"] #nc-root select {
+  background-color: #1a1e2a !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  color: #c8cdd5 !important;
+}
+
+[data-theme="dark"] #nc-root [class*='MarkdownControl'] [class*='Raw'] textarea {
+  background-color: #161a26 !important;
+  color: #c8cdd5 !important;
+}
+
+[data-theme="dark"] #nc-root [class*='Pane'] {
+  background-color: #1e2336 !important;
+}
+
+[data-theme="dark"] #nc-root a {
+  color: #5ea8c8;
 }
 
 #nc-root [aria-label='Account options dropdown'] {

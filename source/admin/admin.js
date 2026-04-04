@@ -1,4 +1,5 @@
 (function () {
+  var THEME_STORAGE_KEY = 'admin-theme';
   var body = document.body;
   var iframe = null;
   var rafId = 0;
@@ -159,14 +160,79 @@
     }
   }
 
+  function getSystemTheme() {
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+
+  function getStoredTheme() {
+    try {
+      return window.localStorage.getItem(THEME_STORAGE_KEY);
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    updateToggleIcon(theme);
+    syncThemeToIframe(theme);
+  }
+
+  function updateToggleIcon(theme) {
+    var btn = document.getElementById('admin-theme-toggle');
+    if (btn) {
+      btn.textContent = theme === 'dark' ? '\u2600' : '\u263E';
+    }
+  }
+
+  function syncThemeToIframe(theme) {
+    if (!iframe || !iframe.contentWindow) {
+      return;
+    }
+
+    try {
+      iframe.contentWindow.postMessage(
+        { type: 'admin-shell-set-theme', theme: theme },
+        frameOrigin
+      );
+    } catch (e) {}
+  }
+
+  function initTheme() {
+    var stored = getStoredTheme();
+    var theme = stored || getSystemTheme();
+    applyTheme(theme);
+
+    var btn = document.getElementById('admin-theme-toggle');
+    if (btn) {
+      btn.addEventListener('click', function () {
+        var current = document.documentElement.getAttribute('data-theme') || 'light';
+        var next = current === 'dark' ? 'light' : 'dark';
+        applyTheme(next);
+        try {
+          window.localStorage.setItem(THEME_STORAGE_KEY, next);
+        } catch (e) {}
+      });
+    }
+
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function () {
+      if (!getStoredTheme()) {
+        applyTheme(getSystemTheme());
+      }
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     iframe = document.getElementById('admin-cms-frame');
     setReadyState(false);
     scheduleApply();
+    initTheme();
 
     if (iframe) {
       iframe.addEventListener('load', function () {
         frameLoaded = true;
+        var theme = document.documentElement.getAttribute('data-theme') || 'light';
+        syncThemeToIframe(theme);
       });
       updateIframeSource(true);
     }
