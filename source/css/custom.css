@@ -215,6 +215,10 @@ body::before {
   transform: scaleX(0.8);
 }
 
+#site_social_icons {
+  display: none !important;
+}
+
 #site_social_icons .social-icon,
 .card-info-social-icons .social-icon {
   display: inline-flex;
