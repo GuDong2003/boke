@@ -1,10 +1,8 @@
 {
   "enabled": true,
-  "label": "音乐角落",
-  "sourceMode": "upload",
+  "autoplay": true,
   "server": "netease",
-  "type": "song",
-  "id": "2154764409",
+  "loop": "all",
   "tracks": [
     {
       "name": "向阳而生 (日出live版)",
@@ -12,9 +10,11 @@
       "url": "/audio/uploads/%E5%8D%8E%E6%99%A8%E5%AE%87 - %E5%90%91%E9%98%B3%E8%80%8C%E7%94%9F (%E6%97%A5%E5%87%BAlive%E7%89%88).mp3"
     }
   ],
-  "volume": 0.45,
-  "autoplay": false,
-  "loop": "all",
   "order": "list",
+  "label": "音乐角落",
+  "volume": 0.45,
+  "type": "song",
+  "id": "2154764409",
+  "sourceMode": "upload",
   "mutex": true
 }
