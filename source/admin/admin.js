@@ -174,15 +174,7 @@
 
   function applyTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
-    updateToggleIcon(theme);
     syncThemeToIframe(theme);
-  }
-
-  function updateToggleIcon(theme) {
-    var btn = document.getElementById('admin-theme-toggle');
-    if (btn) {
-      btn.textContent = theme === 'dark' ? '\u2600' : '\u263E';
-    }
   }
 
   function syncThemeToIframe(theme) {
