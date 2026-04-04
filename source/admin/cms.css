@@ -27,74 +27,216 @@ body {
   min-height: 100%;
 }
 
-[data-theme="dark"] #nc-root [class*='AppHeader'] {
-  background-color: #1e2336 !important;
+/* ===== Dark mode: blanket overrides for Decap CMS ===== */
+
+[data-theme="dark"] #nc-root {
+  color: #c8cdd5;
 }
 
-[data-theme="dark"] #nc-root [class*='AppWrapper'] {
+/* Top bar / header */
+[data-theme="dark"] #nc-root > div > div:first-child,
+[data-theme="dark"] #nc-root header,
+[data-theme="dark"] #nc-root [class*='AppHeader'],
+[data-theme="dark"] #nc-root [class*='Header'] {
+  background-color: #1e2336 !important;
+  border-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+/* Main wrapper / app body */
+[data-theme="dark"] #nc-root [class*='AppWrapper'],
+[data-theme="dark"] #nc-root [class*='AppMain'],
+[data-theme="dark"] #nc-root main {
   background-color: #1a1e2a !important;
 }
 
+/* Sidebar */
+[data-theme="dark"] #nc-root [class*='Sidebar'],
 [data-theme="dark"] #nc-root [class*='SidebarNavList'],
-[data-theme="dark"] #nc-root [class*='Sidebar'] > div {
+[data-theme="dark"] #nc-root nav {
   background-color: #1e2336 !important;
 }
 
-[data-theme="dark"] #nc-root [class*='CardLink'],
+[data-theme="dark"] #nc-root nav a,
+[data-theme="dark"] #nc-root nav span {
+  color: #c8cdd5 !important;
+}
+
+[data-theme="dark"] #nc-root nav a:hover,
+[data-theme="dark"] #nc-root nav li:hover {
+  background-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+/* Cards, list items, entry cards */
+[data-theme="dark"] #nc-root [class*='Card'],
 [data-theme="dark"] #nc-root [class*='ListCard'],
-[data-theme="dark"] #nc-root [class*='ControlPane'],
-[data-theme="dark"] #nc-root [class*='EntryCard'] {
+[data-theme="dark"] #nc-root [class*='EntryCard'],
+[data-theme="dark"] #nc-root [class*='ObjectWidget'],
+[data-theme="dark"] #nc-root [class*='ListItem'] {
   background-color: #232840 !important;
   border-color: rgba(255, 255, 255, 0.08) !important;
   color: #c8cdd5 !important;
 }
 
-[data-theme="dark"] #nc-root [class*='EditorContainer'],
-[data-theme="dark"] #nc-root [class*='ControlPaneContainer'] {
+/* Editor and control panes */
+[data-theme="dark"] #nc-root [class*='Editor'],
+[data-theme="dark"] #nc-root [class*='ControlPane'],
+[data-theme="dark"] #nc-root [class*='Preview'],
+[data-theme="dark"] #nc-root [class*='Pane'] {
   background-color: #1e2336 !important;
-}
-
-[data-theme="dark"] #nc-root [class*='ToolbarButton'],
-[data-theme="dark"] #nc-root [class*='TopBarButton'] {
   color: #c8cdd5 !important;
 }
 
-[data-theme="dark"] #nc-root [class*='EditorToggle'] {
-  background-color: #232840 !important;
+/* Toolbar */
+[data-theme="dark"] #nc-root [class*='Toolbar'],
+[data-theme="dark"] #nc-root [class*='TopBar'] {
+  background-color: #1e2336 !important;
+  border-color: rgba(255, 255, 255, 0.06) !important;
   color: #c8cdd5 !important;
 }
 
-[data-theme="dark"] #nc-root button {
-  color: #c8cdd5;
-}
-
+/* All text elements */
 [data-theme="dark"] #nc-root label,
 [data-theme="dark"] #nc-root h1,
 [data-theme="dark"] #nc-root h2,
-[data-theme="dark"] #nc-root h3 {
+[data-theme="dark"] #nc-root h3,
+[data-theme="dark"] #nc-root h4,
+[data-theme="dark"] #nc-root h5,
+[data-theme="dark"] #nc-root p,
+[data-theme="dark"] #nc-root span,
+[data-theme="dark"] #nc-root li {
   color: #e2e6ec !important;
 }
 
+/* Form controls */
 [data-theme="dark"] #nc-root input,
 [data-theme="dark"] #nc-root textarea,
-[data-theme="dark"] #nc-root select {
-  background-color: #1a1e2a !important;
+[data-theme="dark"] #nc-root select,
+[data-theme="dark"] #nc-root [class*='Widget'] input,
+[data-theme="dark"] #nc-root [class*='Widget'] textarea,
+[data-theme="dark"] #nc-root [class*='Widget'] select {
+  background-color: #161a26 !important;
   border-color: rgba(255, 255, 255, 0.1) !important;
   color: #c8cdd5 !important;
 }
 
-[data-theme="dark"] #nc-root [class*='MarkdownControl'] [class*='Raw'] textarea {
-  background-color: #161a26 !important;
+[data-theme="dark"] #nc-root input::placeholder,
+[data-theme="dark"] #nc-root textarea::placeholder {
+  color: #5a6374 !important;
+}
+
+/* Dropdown / select menus */
+[data-theme="dark"] #nc-root [class*='Dropdown'],
+[data-theme="dark"] #nc-root [class*='Menu'],
+[data-theme="dark"] #nc-root [role='listbox'],
+[data-theme="dark"] #nc-root [role='menu'],
+[data-theme="dark"] #nc-root ul[class] {
+  background-color: #232840 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+[data-theme="dark"] #nc-root [role='option'],
+[data-theme="dark"] #nc-root [role='menuitem'] {
   color: #c8cdd5 !important;
 }
 
-[data-theme="dark"] #nc-root [class*='Pane'] {
-  background-color: #1e2336 !important;
+[data-theme="dark"] #nc-root [role='option']:hover,
+[data-theme="dark"] #nc-root [role='menuitem']:hover {
+  background-color: rgba(255, 255, 255, 0.06) !important;
 }
 
+/* Buttons */
+[data-theme="dark"] #nc-root button {
+  color: #c8cdd5;
+}
+
+[data-theme="dark"] #nc-root button[class*='Publish'],
+[data-theme="dark"] #nc-root button[class*='Save'] {
+  background-color: #3a5068 !important;
+  color: #e2e6ec !important;
+}
+
+/* Links */
 [data-theme="dark"] #nc-root a {
   color: #5ea8c8;
 }
+
+/* Dialogs / Modals */
+[data-theme="dark"] #nc-root [class*='Dialog'],
+[data-theme="dark"] #nc-root [class*='Modal'],
+[data-theme="dark"] #nc-root [role='dialog'] {
+  background-color: #232840 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: #c8cdd5 !important;
+}
+
+/* Blanket override: catch all styled-components generated white backgrounds */
+[data-theme="dark"] #nc-root div,
+[data-theme="dark"] #nc-root section,
+[data-theme="dark"] #nc-root article,
+[data-theme="dark"] #nc-root aside,
+[data-theme="dark"] #nc-root footer {
+  background-color: transparent !important;
+  border-color: rgba(255, 255, 255, 0.06) !important;
+  color: #c8cdd5 !important;
+}
+
+/* Restore key container backgrounds */
+[data-theme="dark"] #nc-root > div {
+  background-color: #1a1e2a !important;
+}
+
+[data-theme="dark"] #nc-root > div > div {
+  background-color: #1a1e2a !important;
+}
+
+[data-theme="dark"] #nc-root > div > div > div:first-child {
+  background-color: #1e2336 !important;
+}
+
+/* SVG icons */
+[data-theme="dark"] #nc-root svg {
+  fill: currentColor;
+}
+
+[data-theme="dark"] #nc-root svg path,
+[data-theme="dark"] #nc-root svg circle,
+[data-theme="dark"] #nc-root svg line,
+[data-theme="dark"] #nc-root svg polyline {
+  stroke: currentColor;
+}
+
+/* Media library */
+[data-theme="dark"] #nc-root [class*='MediaLibrary'],
+[data-theme="dark"] #nc-root [class*='media'] {
+  background-color: #1e2336 !important;
+}
+
+/* Collection view table / list */
+[data-theme="dark"] #nc-root table,
+[data-theme="dark"] #nc-root tr,
+[data-theme="dark"] #nc-root td,
+[data-theme="dark"] #nc-root th {
+  background-color: transparent !important;
+  border-color: rgba(255, 255, 255, 0.06) !important;
+  color: #c8cdd5 !important;
+}
+
+/* Scrollbar */
+[data-theme="dark"] #nc-root ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+[data-theme="dark"] #nc-root ::-webkit-scrollbar-track {
+  background: #1a1e2a;
+}
+
+[data-theme="dark"] #nc-root ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+}
+
+/* ===== End dark mode ===== */
 
 #nc-root [aria-label='Account options dropdown'] {
   border-radius: 999px;
