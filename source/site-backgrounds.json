@@ -1,0 +1,14 @@
+{
+  "site_bg": "/img/background.svg",
+  "home_top_img": "/img/site-bg.svg",
+  "default_top_img": "/img/site-bg.svg",
+  "archive_img": "/img/archive-bg.svg",
+  "tag_img": "/img/tag-bg.svg",
+  "category_img": "/img/category-bg.svg",
+  "error_bg": "/img/error-page.svg",
+  "default_covers": [
+    "/img/covers/cover-1.svg",
+    "/img/covers/cover-2.svg",
+    "/img/covers/cover-3.svg"
+  ]
+}

@@ -177,6 +177,77 @@ collections:
             widget: text
             required: false
 
+      - label: 背景图片
+        name: site_backgrounds
+        file: source/site-backgrounds.json
+        format: json
+        fields:
+          - label: 全站背景
+            name: site_bg
+            widget: image
+            required: false
+            choose_url: false
+            media_folder: /source/img/uploads
+            public_folder: /img/uploads
+            hint: 页面主体背景图，覆盖在整个网站内容区域后面
+          - label: 首页顶图
+            name: home_top_img
+            widget: image
+            required: false
+            choose_url: false
+            media_folder: /source/img/uploads
+            public_folder: /img/uploads
+            hint: 首页大图横幅背景
+          - label: 默认顶图
+            name: default_top_img
+            widget: image
+            required: false
+            choose_url: false
+            media_folder: /source/img/uploads
+            public_folder: /img/uploads
+            hint: 文章和页面没有单独设置顶图时使用的默认背景
+          - label: 归档页顶图
+            name: archive_img
+            widget: image
+            required: false
+            choose_url: false
+            media_folder: /source/img/uploads
+            public_folder: /img/uploads
+          - label: 标签页顶图
+            name: tag_img
+            widget: image
+            required: false
+            choose_url: false
+            media_folder: /source/img/uploads
+            public_folder: /img/uploads
+          - label: 分类页顶图
+            name: category_img
+            widget: image
+            required: false
+            choose_url: false
+            media_folder: /source/img/uploads
+            public_folder: /img/uploads
+          - label: 404 页面背景
+            name: error_bg
+            widget: image
+            required: false
+            choose_url: false
+            media_folder: /source/img/uploads
+            public_folder: /img/uploads
+          - label: 默认文章封面
+            name: default_covers
+            widget: list
+            required: false
+            summary: '{{fields.cover}}'
+            hint: 文章没有设置封面时，从这个列表中随机选取
+            field:
+              label: 封面图
+              name: cover
+              widget: image
+              choose_url: false
+              media_folder: /source/img/uploads
+              public_folder: /img/uploads
+
       - label: 音乐播放器
         name: site_music
         file: source/site-music.json
