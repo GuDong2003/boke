@@ -214,7 +214,7 @@
     });
   }
 
-  document.addEventListener('DOMContentLoaded', function () {
+  function boot() {
     iframe = document.getElementById('admin-cms-frame');
     setReadyState(false);
     scheduleApply();
@@ -228,7 +228,13 @@
       });
       updateIframeSource(true);
     }
-  });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', boot, { once: true });
+  } else {
+    boot();
+  }
 
   window.addEventListener('hashchange', function () {
     if (suppressParentHashChange) {
