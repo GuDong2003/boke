@@ -255,7 +255,7 @@ body::before {
 .card-info-social-icons .social-icon:not([title='Linux Do']):hover i,
 #site_social_icons .social-icon:not([title='Linux Do']) i:hover,
 .card-info-social-icons .social-icon:not([title='Linux Do']) i:hover {
-  transform: translate(-50%, -50%) rotate(360deg);
+  transform: translate(-50%, -50%) rotate(360deg) !important;
 }
 
 #site_social_icons .social-icon[title='Linux Do'] i,

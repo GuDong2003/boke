@@ -11,3 +11,4 @@ themes/
 .env
 _config.admin.local.yml
 _multiconfig.yml
+.ace-tool/
